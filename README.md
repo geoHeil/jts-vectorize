@@ -1,9 +1,15 @@
 # vectorizaton of images in java
 
 ```
-make run-java
-IllegalArgumentException: ImageRead: No OperationDescriptor is registered in the current operation registry under this name
-
+java.lang.IllegalArgumentException: RangeLookup: No OperationDescriptor is registered in the current operation registry under this name.
+	at javax.media.jai.JAI.createNS(JAI.java:1070)
+	at javax.media.jai.JAI.create(JAI.java:973)
+	at org.geotools.image.ImageWorker.rangeLookup(ImageWorker.java:5016)
+	at org.geotools.process.raster.RangeLookupProcess.execute(RangeLookupProcess.java:188)
+	at org.geotools.process.raster.RangeLookupProcess.execute(RangeLookupProcess.java:234)
+	at org.geotools.process.raster.PolygonExtractionProcess.execute(PolygonExtractionProcess.java:167)
+	at FooJava.getWktForDbRangeFromRaster(FooJava.java:57)
+	at FooJava.main(FooJava.java:36)
 ```
 
 
