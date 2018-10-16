@@ -1,9 +1,8 @@
-# vectorizaton of images in spark
+# vectorizaton of images in java
 
 ```
 make run-java
 IllegalArgumentException: ImageRead: No OperationDescriptor is registered in the current operation registry under this name
-
 
 ```
 
