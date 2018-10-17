@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven 3.5.4
+Built-By: geoheil
+Build-Jdk: 11
+Extension-Name: com.sun.media.imageio
+Implementation-Title: com.sun.media.imageio
+Implementation-Vendor: Sun Microsystems, Inc.
+Implementation-Version: 1.1
+Main-Class: FooJava
+Specification-Title: Java Advanced Imaging Image I/O Tools
+Specification-Vendor: Sun Microsystems, Inc.
+Specification-Version: 1.1
+

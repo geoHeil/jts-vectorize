@@ -1,0 +1,6 @@
+org.geotools.processing.jai.ClassBreaksSpi
+org.geotools.processing.jai.TransparencyFillSpi
+org.jaitools.media.jai.zonalstats.ZonalStatsSpi
+org.jaitools.media.jai.rangelookup.RangeLookupSpi
+org.jaitools.media.jai.contour.ContourSpi
+org.jaitools.media.jai.vectorize.VectorizeSpi

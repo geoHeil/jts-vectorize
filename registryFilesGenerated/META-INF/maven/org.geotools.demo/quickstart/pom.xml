@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.geotools.demo</groupId>
+    <artifactId>quickstart</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0</version>
+    <name>GeoTools Quickstart example</name>
+    <url>http://geotools.org</url>
+
+    <properties>
+        <geotools.version>19.2</geotools.version>
+        <jaiext.version>1.0.24</jaiext.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <target>1.8</target>
+                    <source>1.8</source>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <!-- This bit merges the various GeoTools META-INF/services files         -->
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>FooJava</Main-Class>
+                                        <Specification-Title>Java Advanced Imaging Image I/O Tools</Specification-Title>
+                                        <Specification-Version>1.1</Specification-Version>
+                                        <Specification-Vendor>Sun Microsystems, Inc.</Specification-Vendor>
+                                        <Implementation-Title>com.sun.media.imageio</Implementation-Title>
+                                        <Implementation-Version>1.1</Implementation-Version>
+                                        <Implementation-Vendor>Sun Microsystems, Inc.</Implementation-Vendor>
+                                        <Extension-Name>com.sun.media.imageio</Extension-Name>
+                                    </manifestEntries>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/javax.media.jai.registryFile.jai</resource>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/registryFile.jaiext</resource>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!--<dependency>-->
+        <!--TODO validate if this is needed-->
+            <!--<groupId>org.geotools</groupId>-->
+            <!--<artifactId>gt-main</artifactId>-->
+            <!--<version>${geotools.version}</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-arcgrid</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-process-raster</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.utilities</groupId>-->
+            <!--<artifactId>jt-utilities</artifactId>-->
+            <!--<version>1.1.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.iterators</groupId>-->
+            <!--<artifactId>jt-iterators</artifactId>-->
+            <!--<version>${jaiext.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.lookup</groupId>-->
+            <!--<artifactId>jt-lookup</artifactId>-->
+            <!--<version>${jaiext.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.utilities</groupId>-->
+            <!--<artifactId>jt-utilities</artifactId>-->
+            <!--<version>${jaiext.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.rlookup</groupId>-->
+            <!--<artifactId>jt-rlookup</artifactId>-->
+            <!--<version>${jaiext.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.vectorbin</groupId>-->
+            <!--<artifactId>jt-vectorbin</artifactId>-->
+            <!--<version>${jaiext.version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>it.geosolutions.jaiext.lookup</groupId>-->
+            <!--<artifactId>jt-lookup</artifactId>-->
+            <!--<version>${jaiext.version}</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>boundless</id>
+            <url>http://repo.boundlessgeo.com/main</url>
+        </repository>
+        <repository>
+            <id>osgeo</id>
+            <url>http://download.osgeo.org/webdav/geotools</url>
+        </repository>
+    </repositories>
+</project>

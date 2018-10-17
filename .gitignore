@@ -3,3 +3,5 @@ original-quickstart-1.0.jar
 quickstart-1.0.jar
 target/classes
 target
+.idea
+quickstart.iml
